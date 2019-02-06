@@ -1,0 +1,62 @@
+<!DOCTYPE html ng-app="app">
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Agenda de Contatos 2019</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div ng-controller="UserCRUDCtrl">
+		<div>
+			<p><h3>Agenda de Contatos 2019</h3></p>
+		</div>
+		<div>
+			<table>
+			    <tr>
+			        <td width="100">ID:</td>
+			        <td><input type="text" id="id" ng-model="user.id" /></td>
+			    </tr>
+			    <tr>
+			        <td width="100">Name:</td>
+			        <td><input type="text" id="name" ng-model="user.name" /></td>
+			    </tr>
+			    <tr>
+			        <td width="100">Email:</td>
+			        <td><input type="email" id="email" ng-model="user.email" /></td>
+			    </tr>
+			    <tr>
+			        <td width="100">Telefone:</td>
+			        <td><input type="tel" id="phone" ng-model="user.phone" /></td>
+			    </tr>
+			</table>
+			<div>
+				<p>{{errorMessage}}</p>
+			</div>
+		</div>
+		<div><p></p></div>
+		<div>
+			<button ng-click="getUser(user.id)">Localizar contato (ID)</button>
+			<button ng-click="updateUser(user.id,user.name,user.email,user.phone)">Atualizar contato (ID)</button>
+			<button ng-click="addUser(user.name,user.email, user.phone)">Adicionar contato</button>
+			<button ng-click="deleteUser(user.id)">Apagar contato (ID)</button>
+			<button ng-click="getAllUsers()">Todos os contatos</button>
+		</div>
+		<div><p></p></div>
+		<div ng-repeat="usr in users">
+			{{usr.id}} / {{usr.name}} / {{usr.email}} / {{usr.phone}}
+		</div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.7.6/angular-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/controller.js"></script>
+<script src="/js/service.js"></script>
+</body>
+</html>

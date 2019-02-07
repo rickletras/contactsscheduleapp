@@ -21,5 +21,10 @@ public class Contact {
 	private String name;
 	private String email;
 	private String phone;
+	private String cep;
+	private String rua;
+	private String bairro;
+	private String cidade;
+	private String estado;
 
 }

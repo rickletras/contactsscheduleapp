@@ -25,7 +25,7 @@ public class SpringMysqlApplication {
 		return args -> {
 			repository.deleteAll();
 			LongStream.range(1, 11)
-					.mapToObj(i -> new Contact(i, "Contact " + i, "contact" + i + "@email.com", "(111) 111-1111"))
+					.mapToObj(i -> new Contact(i, "Contact " + i, "contact" + i + "@email.com", "(111) 111-1111", "13190000", "rua", "bairro", "Monte Mor", "SP"))
 					.map(v -> repository.save(v))
 					.forEach(System.out::println);
 		};

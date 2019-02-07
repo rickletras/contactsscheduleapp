@@ -3,7 +3,6 @@ package com.contactSchedule.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,6 +49,11 @@ public class ContactController {
 					record.setName(contact.getName());
 					record.setEmail(contact.getEmail());
 					record.setPhone(contact.getPhone());
+					record.setCep(contact.getCep());
+					record.setRua(contact.getRua());
+					record.setBairro(contact.getBairro());
+					record.setCidade(contact.getCidade());
+					record.setEstado(contact.getEstado());
 					Contact update = repository.save(record);
 							return ResponseEntity.ok().body(update);
 				}).orElse(ResponseEntity.notFound().build());

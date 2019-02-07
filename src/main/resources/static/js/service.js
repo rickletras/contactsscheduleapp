@@ -7,26 +7,36 @@ app.service('UserCRUDService', [ '$http', function($http) {
         });
     }
     
-    this.addUser = function addUser(name, email, phone) {
+    this.addUser = function addUser(name, email, phone, cep, rua, bairro, cidade, estado) {
         return $http({
             method : 'POST',
             url : 'contacts',
             data : {
                 name : name,
                 email: email,
-                phone: phone
+                phone: phone,
+                cep: cep,
+                rua: rua,
+                bairro: bairro,
+                cidade: cidade,
+                estado: estado
             }
         });
     }
     
-    this.updateUser = function updateUser(id, name, email, phone) {
+    this.updateUser = function updateUser(id, name, email, phone, cep, rua, bairro, cidade, estado) {
         return $http({
             method : 'PUT',
             url : 'contacts/' + id,
             data : {
                 name : name,
                 email: email,
-                phone: phone
+                phone: phone,
+                cep: cep,
+                rua: rua,
+                bairro: bairro,
+                cidade: cidade,
+                estado: estado
             }
         });
     }
@@ -44,4 +54,12 @@ app.service('UserCRUDService', [ '$http', function($http) {
             url : 'contacts'
         });
     }
+    
+    this.getCep = function getCep(cep) {
+        return $http({
+            method : 'GET',
+            url : 'https://viacep.com.br/ws/'+ cep + '/json'
+        });
+    }
+    
 } ]);
